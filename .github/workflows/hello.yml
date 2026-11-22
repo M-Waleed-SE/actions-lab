@@ -1,13 +1,15 @@
 name: Hello Actions
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
       - name: Say hello
         run: echo "Hello from GitHub Actions!"
 
@@ -22,5 +24,3 @@ jobs:
 
       - name: List files
         run: ls -la
-      - name: Check out the repository
-        uses: actions/checkout@v4
